@@ -1,25 +1,63 @@
+// src/features/Auth/authApi.js
 import api from '../../lib/axios';
 
-// --- KONFIGURASI MODE ---
-const DEMO_MODE = true; // Ubah ke false saat backend Flask sudah siap
+const DEMO_MODE = true;
 
-export const loginWithGoogle = async (credential) => {
+// Fungsi helper untuk membuat data profil sesuai skema DB
+const createMockProfile = (email, provider) => ({
+  id: 'demo-user-uuid-123',
+  nama_lengkap: 'Demo User',
+  email: email,
+  telepon: null,
+  tanggal_lahir: null,
+  jenis_kelamin: 'prefer_tidak_menyebutkan',
+  url_avatar: 'https://ui-avatars.com/api/?name=Demo+User&background=random',
+  url_foto_cv: null,
+  penyedia_auth: provider, // 'google' atau 'email'
+  posisi_target: null,
+  bahasa_preferensi: 'id',
+  data_cv: {},
+  tanggal_dibuat: new Date().toISOString(),
+  tanggal_diperbarui: new Date().toISOString()
+});
+
+export const loginWithGoogle = async () => {
   if (DEMO_MODE) {
-    console.log("[DEMO] Simulasi login Google...");
-    await new Promise(resolve => setTimeout(resolve, 800)); // Simulasi delay jaringan
-    
-    return {
-      access_token: "demo_jwt_token_xyz",
-      user: {
-        id: 999,
-        name: "Demo User",
-        email: "demo@intervu.ai",
-        avatar: "https://ui-avatars.com/api/?name=Demo+User&background=random"
-      }
+    await new Promise(r => setTimeout(r, 800));
+    return { 
+      access_token: 'demo_jwt_google', 
+      user: createMockProfile('demo@gmail.com', 'google') 
     };
   }
+  const res = await api.post('/auth/login/google');
+  return res.data;
+};
 
-  // Real API Call ke Backend Flask
-  const response = await api.post('/auth/login/google', { credential });
-  return response.data;
+export const loginWithEmail = async (email, password) => {
+  if (DEMO_MODE) {
+    await new Promise(r => setTimeout(r, 800));
+    // Simulasi validasi sederhana
+    if (!email || !password) throw new Error('Email dan password wajib diisi');
+    return { 
+      access_token: 'demo_jwt_email', 
+      user: createMockProfile(email, 'email') 
+    };
+  }
+  const res = await api.post('/auth/login', { email, password });
+  return res.data;
+};
+
+export const signUpWithEmail = async (email, password, namaLengkap) => {
+  if (DEMO_MODE) {
+    await new Promise(r => setTimeout(r, 1000));
+    const profile = createMockProfile(email, 'email');
+    profile.nama_lengkap = namaLengkap;
+    return { 
+      access_token: 'demo_jwt_signup', 
+      user: profile,
+      message: 'Akun berhasil dibuat!'
+    };
+  }
+  const res = await api.post('/auth/signup', { email, password, nama_lengkap: namaLengkap });
+  return res.data;
 };

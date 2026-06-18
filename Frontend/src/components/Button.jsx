@@ -1,11 +1,9 @@
-// src/components/Button.jsx
-export function Button({ children, className = '', disabled, ...props }) {
+export function Button({ children, customStyle, className = '', disabled, ...props }) {
   return (
     <button
       disabled={disabled}
-      className={`px-4 py-2 rounded-lg font-medium transition-all 
-        ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'} 
-        ${className}`}
+      style={customStyle} // Terima style dari luar
+      className={`transition-all ${className}`}
       {...props}
     >
       {children}
