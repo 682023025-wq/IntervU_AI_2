@@ -1,3 +1,5 @@
+// src/components/index.js
 export { Button } from './Button';
 export { Input } from './Input';
-// Tambahkan komponen lain di sini nanti, misal: Card, Modal, dll.
+export { default as Navbar } from './Navbar';
+export { default as BottomNav } from './BottomNav';

@@ -2,7 +2,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
-import './index.css' // Ini yang membuat Tailwind bekerja di seluruh aplikasi
+import './index.css'
+import './components/Navbar.css' // Import Navbar CSS global
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

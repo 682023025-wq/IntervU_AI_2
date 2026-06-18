@@ -1,0 +1,469 @@
+/* src/features/Dashboard/DashboardPage.css */
+
+.page-container {
+  min-height: 100vh;
+  background-color: #f8fafc;
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.loading {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  width: 100%;
+  max-width: 1366px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  padding-bottom: 80px; /* Space untuk bottom nav */
+}
+
+/* Welcome Section */
+.welcome-section {
+  margin-bottom: 1rem;
+}
+
+.dashboard-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 4px 0;
+  line-height: 1.2;
+}
+
+.dashboard-subtitle {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin: 0;
+}
+
+/* Stats Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.stat-card {
+  background-color: #ffffff;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  min-height: 60px;
+}
+
+.stat-label {
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: #64748b;
+  margin: 0 0 4px 0;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.stat-value-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2px;
+}
+
+.stat-value {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+  line-height: 1;
+}
+
+.stat-icon-wrap {
+  padding: 4px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Tutorial Section */
+.tutorial-section {
+  background-color: #ffffff;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin: 0;
+}
+
+.carousel-indicators {
+  display: flex;
+  gap: 4px;
+}
+
+.carousel-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #cbd5e1;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s;
+}
+
+.carousel-dot-active {
+  background-color: #4f46e5;
+  width: 16px;
+  border-radius: 3px;
+}
+
+.carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.carousel-btn {
+  background-color: #eef2ff;
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  color: #4f46e5;
+  font-size: 0.9rem;
+}
+
+.carousel-container {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  height: 120px;
+}
+
+.tutorial-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f8fafc;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 2px solid;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.5s ease-in-out;
+}
+
+.tutorial-card-active {
+  opacity: 1;
+  z-index: 10;
+}
+
+.tutorial-card-inactive {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.tutorial-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.step-badge {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.tutorial-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.tutorial-desc {
+  font-size: 0.65rem;
+  color: #64748b;
+  margin: 0 0 8px 0;
+  line-height: 1.4;
+  flex: 1;
+}
+
+.tutorial-link {
+  font-size: 0.65rem;
+  font-weight: 500;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  margin-top: auto;
+}
+
+/* Activities Section */
+.activities-section {
+  background-color: #ffffff;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.activities-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.see-all-btn {
+  font-size: 0.65rem;
+  color: #4f46e5;
+  font-weight: 500;
+  background: none;
+  border: 1px solid #e2e8f0;
+  padding: 4px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  min-height: 28px;
+  font-family: inherit;
+}
+
+.activities-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.activity-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px;
+  background-color: #f8fafc;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.activity-item:hover {
+  background-color: #f1f5f9;
+}
+
+.activity-content {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+}
+
+.activity-icon-wrap {
+  padding: 4px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.bg-blue {
+  background-color: #dbeafe;
+}
+
+.bg-green {
+  background-color: #dcfce7;
+}
+
+.activity-icon-text {
+  font-size: 12px;
+}
+
+.activity-text-wrap {
+  flex: 1;
+  min-width: 0;
+}
+
+.activity-title {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #0f172a;
+  margin: 0;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.activity-date {
+  font-size: 0.6rem;
+  color: #94a3b8;
+  margin: 2px 0 0 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.score-badge {
+  font-size: 0.6rem;
+  color: #16a34a;
+  background-color: #dcfce7;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 500;
+  white-space: nowrap;
+  margin-left: 6px;
+  flex-shrink: 0;
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 1rem 0.75rem;
+  }
+  
+  .dashboard-title {
+    font-size: 1.25rem;
+  }
+  
+  .dashboard-subtitle {
+    font-size: 0.75rem;
+  }
+  
+  .section-title {
+    font-size: 0.8rem;
+  }
+  
+  .stats-grid {
+    gap: 0.4rem;
+  }
+  
+  .stat-card {
+    padding: 0.6rem;
+    min-height: 55px;
+  }
+  
+  .stat-label {
+    font-size: 0.6rem;
+  }
+  
+  .stat-value {
+    font-size: 1rem;
+  }
+  
+  .carousel-container {
+    height: 110px;
+  }
+  
+  .tutorial-card {
+    padding: 0.6rem;
+  }
+  
+  .step-badge {
+    width: 18px;
+    height: 18px;
+    font-size: 0.6rem;
+  }
+  
+  .tutorial-title {
+    font-size: 0.7rem;
+  }
+  
+  .tutorial-desc {
+    font-size: 0.6rem;
+  }
+  
+  .tutorial-link {
+    font-size: 0.6rem;
+  }
+  
+  .activities-section {
+    padding: 0.6rem;
+  }
+  
+  .see-all-btn {
+    font-size: 0.6rem;
+    padding: 3px 6px;
+  }
+  
+  .activity-item {
+    padding: 5px;
+  }
+  
+  .activity-title {
+    font-size: 0.65rem;
+  }
+  
+  .activity-date {
+    font-size: 0.55rem;
+  }
+  
+  .score-badge {
+    font-size: 0.55rem;
+    padding: 1px 4px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .dashboard-title {
+    font-size: 1.35rem;
+  }
+  
+  .stat-card {
+    padding: 0.7rem;
+  }
+  
+  .stat-label {
+    font-size: 0.65rem;
+  }
+  
+  .stat-value {
+    font-size: 1.1rem;
+  }
+}

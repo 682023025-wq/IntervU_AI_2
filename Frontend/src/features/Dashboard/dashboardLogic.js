@@ -11,15 +11,9 @@ export const useDashboardLogic = (navigate) => {
     return JSON.parse(storedUser);
   }, [navigate]);
 
-  const handleLogout = useCallback(() => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user_profile');
-    navigate('/login');
-  }, [navigate]);
-
   const getFirstName = useCallback((fullName) => {
     return fullName ? fullName.split(' ')[0] : 'User';
   }, []);
 
-  return { getUserData, handleLogout, getFirstName };
+  return { getUserData, getFirstName };
 };
