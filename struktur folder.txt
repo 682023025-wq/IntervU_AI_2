@@ -1,0 +1,31 @@
+frontend/
+├── src/
+│   ├── assets/          # Gambar & Global CSS
+│   │
+│   ├── components/      # HANYA UI Kit Global (Button, Input, Card)
+│   │   ├── Button.jsx
+│   │   └── Input.jsx
+│   │
+│   ├── features/        # 🔥 INTI: Semua logic & view per fitur digabung
+│   │   ├── Auth/
+│   │   │   ├── LoginPage.jsx      # View + Logic sederhana
+│   │   │   └── authApi.js         # API khusus auth
+│   │   │
+│   │   ├── CVBuilder/
+│   │   │   ├── CVPage.jsx         # View + State management lokal
+│   │   │   └── cvApi.js           # API khusus CV
+│   │   │
+│   │   ├── Interview/
+│   │   │   ├── InterviewPage.jsx  # View + Logic recording/AI
+│   │   │   └── interviewApi.js    # API khusus Interview
+│   │   │
+│   │   └── Jobs/
+│   │       ├── JobsPage.jsx       # View + Filter logic
+│   │       └── jobsApi.js         # API khusus Jobs
+│   │
+│   ├── lib/             # Utilitas Umum (Hanya 2-3 file)
+│   │   ├── axios.js     # Konfigurasi HTTP client
+│   │   └── utils.js     # Format tanggal, currency, dll
+│   │
+│   ├── App.jsx          # Routing
+│   └── main.jsx         # Entry Point
