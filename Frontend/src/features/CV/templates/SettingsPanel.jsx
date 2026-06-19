@@ -3,7 +3,9 @@ import { useState, useEffect } from 'react';
 import { useCV } from '../cvLogic';
 import CVPreview from '../CVPreview'; // Import CVPreview
 import { languageOptions, t } from '../translations';
+import '../CVPreview.css'; // ← TAMBAHKAN BARIS INI
 import './SettingsPanel.css';
+
 
 // ===== SVG ICONS =====
 const GlobeIcon = ({ size = 16 }) => (<svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>);
@@ -101,15 +103,17 @@ export default function SettingsPanel() {
     return names[templateId] || 'Modern';
   };
 
-  return (
-    <div className="settings-layout">
-      {/* LEFT COLUMN: SETTINGS */}
-      <div className="settings-panel">
-        <div className="settings-header">
-          <h2 className="settings-title">Pengaturan</h2>
-          <p className="settings-desc">Konfigurasi preferensi dan manajemen data CV</p>
-        </div>
-
+return (
+  <div className="settings-layout">
+    {/* LEFT COLUMN: SETTINGS */}
+    <div className="settings-panel">
+      <div className="settings-header">
+        <h2 className="settings-title">Pengaturan</h2>
+        <p className="settings-desc">Konfigurasi preferensi dan manajemen data CV</p>
+      </div>
+      
+      {/* WRAPPER BODY - Samakan dengan cv-form-body */}
+      <div className="settings-body">
         {/* 1. LANGUAGE SETTING */}
         <div className="settings-section">
           <div className="settings-section-header">
@@ -121,7 +125,11 @@ export default function SettingsPanel() {
           </div>
           <div className="settings-language-options">
             {languageOptions.map((lang) => (
-              <button key={lang.value} onClick={() => setLanguage(lang.value)} className={`settings-language-btn ${language === lang.value ? 'settings-language-btn-active' : ''}`}>
+              <button 
+                key={lang.value} 
+                onClick={() => setLanguage(lang.value)} 
+                className={`settings-language-btn ${language === lang.value ? 'settings-language-btn-active' : ''}`}
+              >
                 <span className="settings-language-flag">{lang.flag}</span>
                 <span className="settings-language-name">{lang.label}</span>
                 {language === lang.value && <span className="settings-language-check"><CheckIcon /></span>}
@@ -145,7 +153,11 @@ export default function SettingsPanel() {
           </div>
           <div className="settings-template-grid">
             {templateOptions.map((template) => (
-              <div key={template.id} className={`settings-template-card ${selectedTemplate === template.id ? 'settings-template-card-selected' : ''}`} onClick={() => setTemplate(template.id)}>
+              <div 
+                key={template.id} 
+                className={`settings-template-card ${selectedTemplate === template.id ? 'settings-template-card-selected' : ''}`} 
+                onClick={() => setTemplate(template.id)}
+              >
                 <div className="settings-template-preview" style={{ background: `linear-gradient(135deg, ${template.color}22 0%, ${template.color}11 100%)` }}>
                   <div className={`settings-template-thumb ${template.previewClass}`} />
                 </div>
@@ -153,7 +165,9 @@ export default function SettingsPanel() {
                   <h4 className="settings-template-name">{t(template.nameKey, language)}</h4>
                   <p className="settings-template-desc">{t(template.descKey, language)}</p>
                 </div>
-                {selectedTemplate === template.id && <div className="settings-template-badge"><CheckIcon size={12} /> Dipilih</div>}
+                {selectedTemplate === template.id && (
+                  <div className="settings-template-badge"><CheckIcon size={12} /> Dipilih</div>
+                )}
               </div>
             ))}
           </div>
@@ -170,7 +184,11 @@ export default function SettingsPanel() {
           </div>
           <div className="settings-paper-options">
             {paperSizeOptions.map((size) => (
-              <button key={size.value} onClick={() => setPaperSize(size.value)} className={`settings-paper-btn ${paperSize === size.value ? 'settings-paper-btn-active' : ''}`}>
+              <button 
+                key={size.value} 
+                onClick={() => setPaperSize(size.value)} 
+                className={`settings-paper-btn ${paperSize === size.value ? 'settings-paper-btn-active' : ''}`}
+              >
                 <div className="settings-paper-info">
                   <span className="settings-paper-label">{size.label}</span>
                   <span className="settings-paper-dimension">{size.dimension}</span>
@@ -229,32 +247,41 @@ export default function SettingsPanel() {
           )}
         </div>
       </div>
+    </div>
 
-      {/* RIGHT COLUMN: LIVE PREVIEW */}
-      <div className="settings-preview-column">
-        <div className="settings-preview-header">
-          <h3 className="settings-preview-title">Live Preview</h3>
-          <p className="settings-preview-desc">Perubahan template & bahasa terlihat di sini</p>
-        </div>
-        <div className="settings-preview-wrapper">
-          <CVPreview />
-        </div>
+    {/* RIGHT COLUMN: LIVE PREVIEW */}
+    <div className="settings-preview-column">
+      <div className="settings-preview-header">
+        <h3 className="settings-preview-title">Live Preview</h3>
+        <p className="settings-preview-desc">Perubahan template & bahasa terlihat di sini</p>
       </div>
+      <div className="settings-preview-wrapper">
+        <CVPreview cvData={cvData} template={selectedTemplate} />
+      </div>
+    </div>
 
-      {/* MODAL SIMPAN CV */}
-      {showSaveModal && (
-        <div className="cv-modal-overlay" onClick={() => setShowSaveModal(false)}>
-          <div className="cv-modal" onClick={(e) => e.stopPropagation()}>
-            <h3 className="cv-modal-title">Simpan CV</h3>
-            <p className="cv-modal-desc">Berikan nama untuk versi CV ini.</p>
-            <input type="text" value={cvName} onChange={(e) => setCvName(e.target.value)} placeholder="Contoh: CV Software Engineer - v1" className="cv-modal-input" autoFocus onKeyDown={(e) => e.key === 'Enter' && handleSaveCV()} />
-            <div className="cv-modal-actions">
-              <button onClick={() => setShowSaveModal(false)} className="cv-modal-btn cv-modal-btn-secondary">Batal</button>
-              <button onClick={handleSaveCV} className="cv-modal-btn cv-modal-btn-primary"><SaveIcon /> Simpan</button>
-            </div>
+    {/* MODAL SIMPAN CV */}
+    {showSaveModal && (
+      <div className="cv-modal-overlay" onClick={() => setShowSaveModal(false)}>
+        <div className="cv-modal" onClick={(e) => e.stopPropagation()}>
+          <h3 className="cv-modal-title">Simpan CV</h3>
+          <p className="cv-modal-desc">Berikan nama untuk versi CV ini.</p>
+          <input 
+            type="text" 
+            value={cvName} 
+            onChange={(e) => setCvName(e.target.value)} 
+            placeholder="Contoh: CV Software Engineer - v1" 
+            className="cv-modal-input" 
+            autoFocus 
+            onKeyDown={(e) => e.key === 'Enter' && handleSaveCV()} 
+          />
+          <div className="cv-modal-actions">
+            <button onClick={() => setShowSaveModal(false)} className="cv-modal-btn cv-modal-btn-secondary">Batal</button>
+            <button onClick={handleSaveCV} className="cv-modal-btn cv-modal-btn-primary"><SaveIcon /> Simpan</button>
           </div>
         </div>
-      )}
-    </div>
-  );
+      </div>
+    )}
+  </div>
+);
 }
