@@ -1,0 +1,133 @@
+/* src/features/CV/templates/MinimalistTemplate.css */
+.minimalist-cv {
+  font-family: 'Inter', sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  background: white;
+  color: #1e293b;
+}
+
+.minimalist-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.minimalist-name {
+  font-size: 2.5rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  margin: 0 0 0.5rem 0;
+  color: #0f172a;
+}
+
+.minimalist-contact {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-bottom: 0.5rem;
+}
+
+.minimalist-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.8rem;
+}
+
+.minimalist-links a {
+  color: #0F4C75;
+  text-decoration: none;
+}
+
+.minimalist-links a:hover {
+  text-decoration: underline;
+}
+
+.minimalist-section {
+  margin-bottom: 1.5rem;
+}
+
+.minimalist-section h2 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #0F4C75;
+  margin: 0 0 0.75rem 0;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.minimalist-section p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #475569;
+  margin: 0;
+}
+
+.minimalist-item {
+  margin-bottom: 1rem;
+}
+
+.minimalist-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.25rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.minimalist-item-header strong {
+  font-size: 0.95rem;
+  color: #0f172a;
+}
+
+.minimalist-item-header span {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  font-style: italic;
+}
+
+.minimalist-item-sub {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin: 0 0 0.25rem 0;
+  font-style: italic;
+}
+
+.minimalist-item p {
+  font-size: 0.85rem;
+  color: #475569;
+  line-height: 1.5;
+  margin: 0.25rem 0 0 0;
+  white-space: pre-wrap;
+}
+
+.minimalist-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .minimalist-cv {
+    padding: 1.5rem 1rem;
+  }
+  
+  .minimalist-name {
+    font-size: 1.75rem;
+  }
+  
+  .minimalist-two-col {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}

@@ -1,0 +1,129 @@
+/* src/features/CV/templates/ClassicTemplate.css */
+.classic-cv-template {
+  font-family: 'Times New Roman', Times, serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px;
+  background: white;
+}
+
+.classic-header {
+  text-align: center;
+  border-bottom: 2px solid #000;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.classic-name {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0 0 10px 0;
+  text-transform: uppercase;
+}
+
+.classic-contact {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+}
+
+.classic-section {
+  margin-bottom: 25px;
+}
+
+.classic-section-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-bottom: 1px solid #000;
+  margin: 0 0 10px 0;
+  padding-bottom: 5px;
+}
+
+.classic-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.classic-experience {
+  margin-bottom: 15px;
+}
+
+.classic-experience-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.classic-experience-position {
+  font-weight: bold;
+  font-size: 1.05rem;
+}
+
+.classic-experience-company {
+  font-style: italic;
+}
+
+.classic-experience-meta {
+  font-size: 0.9rem;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.classic-experience-desc {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.classic-education {
+  margin-bottom: 10px;
+}
+
+.classic-education-degree {
+  font-weight: bold;
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+.classic-education-school {
+  font-style: italic;
+  margin: 3px 0;
+}
+
+.classic-education-meta {
+  font-size: 0.9rem;
+  color: #333;
+  margin: 0;
+}
+
+.classic-skills {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.classic-cert {
+  margin-bottom: 8px;
+}
+
+.classic-cert h3 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.classic-cert p {
+  font-size: 0.9rem;
+  color: #333;
+  margin: 3px 0 0 0;
+}
+
+@media print {
+  .classic-cv-template {
+    padding: 0;
+  }
+}

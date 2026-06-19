@@ -1,0 +1,188 @@
+/* src/features/CV/CVForm.css */
+.cv-form-container { width: 100%; display: flex; flex-direction: column; gap: 1rem; }
+
+.cv-form-actions { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
+.cv-demo-btn { padding: 8px 16px; background: #f59e0b; color: white; border: none; border-radius: 6px; font-size: 0.8rem; font-weight: 600; cursor: pointer; }
+.cv-demo-btn:hover { background: #d97706; }
+.cv-save-btn { padding: 8px 16px; background: #10b981; color: white; border: none; border-radius: 6px; font-size: 0.8rem; font-weight: 600; cursor: pointer; }
+.cv-save-btn:hover { background: #059669; }
+
+.cv-form-section { display: flex; flex-direction: column; gap: 1.25rem; }
+.cv-form-section-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 0.5rem; }
+.cv-section-title-wrap { display: flex; align-items: flex-start; gap: 10px; }
+.cv-section-icon { width: 36px; height: 36px; background: linear-gradient(135deg, #0F4C75 0%, #2872A3 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; flex-shrink: 0; margin-top: 2px; }
+.cv-section-icon svg { width: 18px; height: 18px; }
+.cv-form-section-title { font-size: 1rem; font-weight: 700; color: #0f172a; margin: 0; }
+.cv-form-section-desc { font-size: 0.75rem; color: #64748b; margin: 2px 0 0 0; }
+
+.cv-form-subsection { display: flex; flex-direction: column; gap: 0.75rem; padding: 1rem; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; }
+.cv-subsection-title { font-size: 0.85rem; font-weight: 600; color: #0f172a; margin: 0 0 0.5rem 0; }
+
+.cv-photo-upload { display: flex; flex-direction: column; gap: 6px; }
+.cv-photo-label { font-size: 0.75rem; font-weight: 600; color: #475569; }
+.cv-photo-container { display: flex; align-items: center; gap: 1rem; }
+.cv-photo-preview { position: relative; width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 2px solid #e2e8f0; }
+.cv-photo-preview img { width: 100%; height: 100%; object-fit: cover; }
+.cv-photo-remove { position: absolute; top: 4px; right: 4px; width: 24px; height: 24px; background: rgba(239, 68, 68, 0.9); color: white; border: none; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
+.cv-photo-placeholder { width: 100px; height: 100px; border: 2px dashed #cbd5e1; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; cursor: pointer; color: #64748b; font-size: 0.7rem; transition: all 0.2s; }
+.cv-photo-placeholder:hover { border-color: #0F4C75; color: #0F4C75; background: #f0f9ff; }
+
+.cv-form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+.cv-form-field { display: flex; flex-direction: column; gap: 4px; }
+.cv-form-field-full { grid-column: 1 / -1; }
+.cv-form-field label { font-size: 0.75rem; font-weight: 600; color: #475569; }
+.cv-form-field input, .cv-form-field textarea, .cv-form-field select { padding: 8px 10px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 0.8rem; font-family: inherit; transition: all 0.2s; background: white; }
+.cv-form-field input:focus, .cv-form-field textarea:focus, .cv-form-field select:focus { outline: none; border-color: #0F4C75; box-shadow: 0 0 0 3px rgba(15, 76, 117, 0.1); }
+.cv-form-field textarea { resize: vertical; min-height: 80px; }
+.cv-form-hint { font-size: 0.65rem; color: #94a3b8; font-style: italic; }
+
+.cv-add-btn { padding: 8px 12px; background: #0F4C75; color: white; border: none; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+.cv-add-btn:hover { background: #1B5F8C; }
+.cv-add-item-btn { display: flex; align-items: center; gap: 4px; padding: 6px 12px; background: #0F4C75; color: white; border: none; border-radius: 6px; font-size: 0.75rem; font-weight: 600; cursor: pointer; transition: background 0.2s; white-space: nowrap; flex-shrink: 0; }
+.cv-add-item-btn:hover { background: #1B5F8C; }
+
+.cv-items-list { display: flex; flex-direction: column; gap: 0.75rem; }
+.cv-item-card { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1rem; display: flex; flex-direction: column; gap: 0.75rem; }
+.cv-item-header { display: flex; justify-content: space-between; align-items: center; }
+.cv-item-number { font-size: 0.7rem; font-weight: 700; color: #0F4C75; background: #e0f2fe; padding: 2px 8px; border-radius: 12px; }
+.cv-item-delete-btn { padding: 6px; background: #fee2e2; color: #ef4444; border: none; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+.cv-item-delete-btn:hover { background: #fecaca; }
+.cv-empty-state { padding: 2rem 1rem; text-align: center; background: white; border: 1px dashed #cbd5e1; border-radius: 8px; color: #94a3b8; font-size: 0.8rem; }
+
+.cv-contact-add-row { display: flex; gap: 6px; }
+.cv-contact-type-select { padding: 8px 10px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 0.8rem; background: white; min-width: 120px; }
+.cv-contact-add-row input { flex: 1; padding: 8px 10px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 0.8rem; }
+.cv-contact-list { display: flex; flex-direction: column; gap: 6px; margin-top: 8px; }
+.cv-contact-item { display: flex; align-items: center; gap: 8px; padding: 8px 10px; background: white; border: 1px solid #e2e8f0; border-radius: 6px; }
+.cv-contact-icon { width: 28px; height: 28px; background: #e0f2fe; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #0F4C75; flex-shrink: 0; }
+.cv-contact-value { flex: 1; font-size: 0.8rem; color: #334155; }
+.cv-contact-remove { padding: 4px; background: #fee2e2; color: #ef4444; border: none; border-radius: 4px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+
+.cv-skill-add-container { display: flex; gap: 8px; }
+.cv-skill-level-dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex-shrink: 0; /* Mencegah tombol mengecil/gepeng */
+  position: relative;
+  z-index: 2; /* Memastikan berada di atas elemen lain */
+  padding: 0;
+}
+
+.cv-skill-level-dot:hover {
+  transform: scale(1.2);
+}
+
+.cv-skill-level-dots {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+.cv-skill-input { flex: 1; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 0.85rem; }
+.cv-skill-input:focus { outline: none; border-color: #0F4C75; box-shadow: 0 0 0 3px rgba(15, 76, 117, 0.1); }
+.cv-add-skill-btn { display: flex; align-items: center; gap: 6px; padding: 10px 16px; background: #0F4C75; color: white; border: none; border-radius: 6px; font-size: 0.8rem; font-weight: 600; cursor: pointer; transition: background 0.2s; white-space: nowrap; }
+.cv-add-skill-btn:hover { background: #1B5F8C; }
+.cv-skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.75rem; }
+.cv-skill-card { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.75rem; display: flex; flex-direction: column; gap: 8px; transition: all 0.2s; }
+.cv-skill-card:hover { box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); border-color: #0F4C75; }
+.cv-skill-card-header { display: flex; justify-content: space-between; align-items: center; }
+.cv-skill-name { font-size: 0.85rem; font-weight: 600; color: #0f172a; }
+.cv-skill-remove { padding: 4px; background: #fee2e2; color: #ef4444; border: none; border-radius: 4px; cursor: pointer; display: flex; align-items: center; justify-content: center; opacity: 0.7; transition: opacity 0.2s; }
+.cv-skill-remove:hover { opacity: 1; }
+.cv-skill-level-container { display: flex; align-items: center; gap: 8px; }
+.cv-skill-level-dots { display: flex; gap: 4px; }
+.cv-skill-level-dot { width: 20px; height: 20px; border-radius: 50%; border: none; cursor: pointer; transition: all 0.2s; }
+.cv-skill-level-dot:hover { transform: scale(1.2); }
+.cv-skill-level-label { font-size: 0.7rem; font-weight: 600; }
+.cv-skill-legend { display: flex; align-items: center; gap: 12px; padding: 10px; background: #f8fafc; border-radius: 6px; margin-top: 8px; }
+.cv-legend-title { font-size: 0.7rem; font-weight: 600; color: #475569; }
+.cv-legend-items { display: flex; gap: 12px; }
+.cv-legend-item { display: flex; align-items: center; gap: 4px; font-size: 0.7rem; color: #64748b; }
+.cv-legend-dot { width: 12px; height: 12px; border-radius: 50%; }
+
+.cv-language-add-row { display: flex; gap: 6px; }
+.cv-language-add-row input { flex: 1; padding: 8px 10px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 0.8rem; }
+.cv-language-add-row select { padding: 8px 10px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 0.8rem; background: white; }
+.cv-language-list { display: flex; flex-direction: column; gap: 6px; margin-top: 8px; }
+.cv-language-item { display: flex; align-items: center; gap: 8px; padding: 8px 10px; background: white; border: 1px solid #e2e8f0; border-radius: 6px; }
+.cv-language-name { font-size: 0.85rem; font-weight: 600; color: #0f172a; min-width: 100px; }
+.cv-language-proficiency { flex: 1; padding: 6px 8px; border: 1px solid #cbd5e1; border-radius: 4px; font-size: 0.75rem; background: white; }
+.cv-language-remove { padding: 4px; background: #fee2e2; color: #ef4444; border: none; border-radius: 4px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+
+@media (max-width: 768px) {
+  .cv-form-grid { grid-template-columns: 1fr; }
+  .cv-form-section-title { font-size: 0.9rem; }
+  .cv-form-section-desc { font-size: 0.7rem; }
+  .cv-form-field label { font-size: 0.7rem; }
+  .cv-form-field input, .cv-form-field textarea, .cv-form-field select { padding: 7px 9px; font-size: 0.75rem; }
+  .cv-form-hint { font-size: 0.6rem; }
+  .cv-add-item-btn { padding: 5px 10px; font-size: 0.7rem; }
+  .cv-item-card { padding: 0.75rem; }
+  .cv-item-number { font-size: 0.65rem; padding: 2px 6px; }
+  .cv-subsection-title { font-size: 0.8rem; }
+  .cv-skills-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+  .cv-skill-card { padding: 0.6rem; }
+  .cv-skill-name { font-size: 0.8rem; }
+  .cv-skill-level-dot { width: 16px; height: 16px; }
+  .cv-photo-preview, .cv-photo-placeholder { width: 80px; height: 80px; }
+  .cv-section-icon { width: 32px; height: 32px; }
+  .cv-section-icon svg { width: 16px; height: 16px; }
+}
+
+@media (max-width: 400px) {
+  .cv-form-section { gap: 0.75rem; }
+  .cv-form-section-header { gap: 0.4rem; margin-bottom: 0.25rem; }
+  .cv-form-section-title { font-size: 0.7rem; }
+  .cv-form-section-desc { font-size: 0.55rem; }
+  .cv-form-subsection { padding: 0.6rem; gap: 0.5rem; }
+  .cv-subsection-title { font-size: 0.65rem; }
+  .cv-form-grid { gap: 0.4rem; }
+  .cv-form-field { gap: 2px; }
+  .cv-form-field label { font-size: 0.6rem; }
+  .cv-form-field input, .cv-form-field textarea, .cv-form-field select { padding: 5px 7px; font-size: 0.65rem; border-radius: 4px; }
+  .cv-form-field textarea { min-height: 60px; }
+  .cv-form-hint { font-size: 0.5rem; }
+  .cv-add-btn { padding: 6px 10px; }
+  .cv-add-btn svg { width: 12px; height: 12px; }
+  .cv-add-item-btn { padding: 4px 8px; font-size: 0.6rem; border-radius: 4px; gap: 2px; }
+  .cv-add-item-btn svg { width: 10px; height: 10px; }
+  .cv-items-list { gap: 0.4rem; }
+  .cv-item-card { padding: 0.5rem; border-radius: 5px; gap: 0.4rem; }
+  .cv-item-number { font-size: 0.5rem; padding: 1px 5px; }
+  .cv-item-delete-btn { padding: 4px; border-radius: 4px; }
+  .cv-item-delete-btn svg { width: 10px; height: 10px; }
+  .cv-empty-state { padding: 1rem 0.5rem; font-size: 0.6rem; border-radius: 5px; }
+  .cv-contact-add-row { flex-direction: column; gap: 4px; }
+  .cv-contact-type-select, .cv-contact-add-row input { padding: 6px 8px; font-size: 0.65rem; }
+  .cv-contact-item { padding: 6px 8px; gap: 6px; }
+  .cv-contact-icon { width: 22px; height: 22px; }
+  .cv-contact-icon svg { width: 11px; height: 11px; }
+  .cv-contact-value { font-size: 0.65rem; }
+  .cv-skill-add-container { flex-direction: column; gap: 6px; }
+  .cv-skill-input { padding: 7px 9px; font-size: 0.7rem; }
+  .cv-add-skill-btn { padding: 7px 12px; font-size: 0.65rem; }
+  .cv-skills-grid { grid-template-columns: 1fr; gap: 0.4rem; }
+  .cv-skill-card { padding: 0.5rem; border-radius: 5px; }
+  .cv-skill-name { font-size: 0.7rem; }
+  .cv-skill-level-dot { width: 14px; height: 14px; }
+  .cv-skill-level-label { font-size: 0.6rem; }
+  .cv-skill-legend { flex-direction: column; align-items: flex-start; gap: 6px; padding: 8px; }
+  .cv-legend-title { font-size: 0.6rem; }
+  .cv-legend-items { flex-wrap: wrap; gap: 8px; }
+  .cv-legend-item { font-size: 0.6rem; }
+  .cv-legend-dot { width: 10px; height: 10px; }
+  .cv-language-add-row { flex-direction: column; gap: 4px; }
+  .cv-language-add-row input, .cv-language-add-row select { padding: 6px 8px; font-size: 0.65rem; }
+  .cv-language-item { padding: 6px 8px; gap: 6px; }
+  .cv-language-name { font-size: 0.7rem; min-width: 70px; }
+  .cv-language-proficiency { padding: 4px 6px; font-size: 0.65rem; }
+  .cv-photo-preview, .cv-photo-placeholder { width: 70px; height: 70px; }
+  .cv-photo-label { font-size: 0.65rem; }
+  .cv-section-icon { width: 26px; height: 26px; border-radius: 6px; }
+  .cv-section-icon svg { width: 13px; height: 13px; }
+  .cv-section-title-wrap { gap: 6px; }
+  .cv-demo-btn, .cv-save-btn { font-size: 0.65rem; padding: 6px 10px; }
+}

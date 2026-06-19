@@ -1,20 +1,54 @@
 // src/features/CV/CVBuilder.jsx
 import { useState, useEffect, useRef } from 'react';
 import { useCV } from './cvLogic';
+import CVForm from './CVForm';
 import CVPreview from './CVPreview';
 import './CVBuilder.css';
 
-// --- SVG Icons ---
-const EyeIcon = () => (<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>);
-const CheckIcon = () => (<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>);
-const ChatIcon = () => (<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{display:'block'}}><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>);
-const CloseIcon = () => (<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>);
-const SaveIcon = () => (<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>);
-const DownloadIcon = () => (<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>);
+// ===== SVG ICONS =====
+const EyeIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/>
+  </svg>
+);
+
+const CheckIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+    <polyline points="20 6 9 17 4 12"/>
+  </svg>
+);
+
+const ChatIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{display:'block'}}>
+    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+  </svg>
+);
+
+const CloseIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M18 6L6 18M6 6l12 12"/>
+  </svg>
+);
+
+const SaveIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+    <polyline points="17 21 17 13 7 13 7 21"/>
+    <polyline points="7 3 7 8 15 8"/>
+  </svg>
+);
+
+const DownloadIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+    <polyline points="7 10 12 15 17 10"/>
+    <line x1="12" y1="15" x2="12" y2="3"/>
+  </svg>
+);
 
 export default function CVBuilder() {
   const { state, setCurrentStep, exportCVData } = useCV();
-  const { currentStep, cvData } = state;
+  const { currentStep, cvData, selectedTemplate } = state;
   
   const [isChatOpen, setIsChatOpen] = useState(true);
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -134,19 +168,21 @@ export default function CVBuilder() {
     }
   };
 
-  const handleSave = () => { localStorage.setItem('cv_draft', JSON.stringify(exportCVData())); alert('CV berhasil disimpan!'); };
+  const handleSave = () => {
+    exportCVData();
+    alert('CV berhasil disimpan!');
+  };
+  
   const handleDownloadPDF = () => alert('Fitur download PDF akan segera hadir!');
 
-  const steps = [{ id: 1, name: 'Info Pribadi' }, { id: 2, name: 'Skill' }, { id: 3, name: 'Pengalaman' }, { id: 4, name: 'Pendidikan' }];
-  const renderStep = () => {
-    switch (currentStep) {
-      case 1: return <div className="cv-step-content">Form Info Pribadi (Coming Soon)</div>;
-      case 2: return <div className="cv-step-content">Form Skill (Coming Soon)</div>;
-      case 3: return <div className="cv-step-content">Form Pengalaman (Coming Soon)</div>;
-      case 4: return <div className="cv-step-content">Form Pendidikan (Coming Soon)</div>;
-      default: return null;
-    }
-  };
+  const steps = [
+    { id: 1, name: 'Info Pribadi' },
+    { id: 2, name: 'Skill' },
+    { id: 3, name: 'Pengalaman' },
+    { id: 4, name: 'Organisasi' },
+    { id: 5, name: 'Pendidikan' },
+    { id: 6, name: 'Proyek' },
+  ];
 
   return (
     <div className="cv-builder-container">
@@ -160,45 +196,100 @@ export default function CVBuilder() {
                     <div className={`cv-step-circle ${currentStep >= step.id ? 'cv-step-active' : ''}`}>
                       {currentStep >= step.id ? <CheckIcon /> : <span>{step.id}</span>}
                     </div>
-                    <span className={`cv-step-label ${currentStep >= step.id ? 'cv-step-label-active' : ''}`}>{step.name}</span>
+                    <span className={`cv-step-label ${currentStep >= step.id ? 'cv-step-label-active' : ''}`}>
+                      {step.name}
+                    </span>
                   </button>
                 ))}
               </div>
             </div>
-            <div className="cv-form-body">{renderStep()}</div>
+
+            <div className="cv-form-body">
+              <CVForm />
+            </div>
           </div>
         </div>
+
         <div className="cv-preview-column">
           <div className="cv-preview-card">
             <div className="cv-preview-header">
-              <div className="cv-preview-title-wrap"><div className="cv-preview-icon"><EyeIcon /></div><h3 className="cv-preview-title">Preview CV</h3></div>
+              <div className="cv-preview-title-wrap">
+                <div className="cv-preview-icon"><EyeIcon /></div>
+                <h3 className="cv-preview-title">Preview CV</h3>
+              </div>
+              <span className="cv-preview-template-badge">
+                {selectedTemplate === 'modern' ? 'Modern' : 'Classic'}
+              </span>
             </div>
-            <div className="cv-preview-body"><CVPreview cvData={cvData} /></div>
+            <div className="cv-preview-body">
+              <CVPreview cvData={cvData} template={selectedTemplate} />
+            </div>
           </div>
         </div>
       </div>
 
       {isChatOpen && (
-        <div className="cv-mobile-draggable-panel" style={{ left: `${position.x}px`, top: `${position.y}px`, width: `${panelDimensions.width}px`, height: `${panelDimensions.height}px` }}>
+        <div 
+          className="cv-mobile-draggable-panel"
+          style={{
+            left: `${position.x}px`,
+            top: `${position.y}px`,
+            width: `${panelDimensions.width}px`,
+            height: `${panelDimensions.height}px`
+          }}
+        >
           <div className="cv-mobile-panel-inner">
-            <div onMouseDown={handleDragStart} onTouchStart={handleDragStart} className="cv-mobile-panel-header">
+            <div 
+              onMouseDown={handleDragStart}
+              onTouchStart={handleDragStart}
+              className="cv-mobile-panel-header"
+            >
               <div className="cv-mobile-panel-title-wrap">
                 <div className="cv-mobile-panel-icon"><EyeIcon /></div>
-                <div className="cv-mobile-panel-text"><h3 className="cv-mobile-panel-title">Preview CV</h3><p className="cv-mobile-panel-subtitle">Geser untuk pindah posisi</p></div>
+                <div className="cv-mobile-panel-text">
+                  <h3 className="cv-mobile-panel-title">Preview CV</h3>
+                  <p className="cv-mobile-panel-subtitle">Geser untuk pindah posisi</p>
+                </div>
               </div>
-              <button onClick={(e) => { e.stopPropagation(); setIsChatOpen(false); }} className="cv-mobile-panel-close"><CloseIcon /></button>
+              <button
+                onClick={(e) => { e.stopPropagation(); setIsChatOpen(false); }}
+                className="cv-mobile-panel-close"
+              >
+                <CloseIcon />
+              </button>
             </div>
-            <div className="cv-mobile-panel-content"><div className="cv-mobile-preview-wrap"><CVPreview cvData={cvData} /></div></div>
+            <div className="cv-mobile-panel-content">
+              <div className="cv-mobile-preview-wrap">
+                <CVPreview cvData={cvData} template={selectedTemplate} />
+              </div>
+            </div>
             <div className="cv-mobile-panel-footer">
-              <button onClick={handleSave} className="cv-mobile-action-btn cv-mobile-btn-primary"><SaveIcon /> Simpan</button>
-              <button onClick={handleDownloadPDF} className="cv-mobile-action-btn cv-mobile-btn-secondary"><DownloadIcon /> PDF</button>
+              <button onClick={handleSave} className="cv-mobile-action-btn cv-mobile-btn-primary">
+                <SaveIcon /> Simpan
+              </button>
+              <button onClick={handleDownloadPDF} className="cv-mobile-action-btn cv-mobile-btn-secondary">
+                <DownloadIcon /> PDF
+              </button>
             </div>
           </div>
         </div>
       )}
 
       {!isChatOpen && (
-        <button onMouseDown={handleFabDragStart} onTouchStart={handleFabDragStart} onClick={handleTogglePanel} className="cv-fab-btn" style={{ left: `${fabPosition.x}px`, top: `${fabPosition.y}px`, width: `${FAB_SIZE}px`, height: `${FAB_SIZE}px`, transform: isFabDragging ? 'scale(1.1)' : 'scale(1)', transition: isFabDragging ? 'none' : 'transform 0.2s, box-shadow 0.2s' }}>
+        <button
+          onMouseDown={handleFabDragStart}
+          onTouchStart={handleFabDragStart}
+          onClick={handleTogglePanel}
+          className="cv-fab-btn"
+          style={{
+            left: `${fabPosition.x}px`,
+            top: `${fabPosition.y}px`,
+            width: `${FAB_SIZE}px`,
+            height: `${FAB_SIZE}px`,
+            transform: isFabDragging ? 'scale(1.1)' : 'scale(1)',
+            transition: isFabDragging ? 'none' : 'transform 0.2s, box-shadow 0.2s'
+          }}
+        >
           <ChatIcon />
         </button>
       )}
