@@ -1,0 +1,45 @@
+.jobs-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.jobs-header {
+  margin-bottom: 24px;
+}
+
+.jobs-search-section {
+  margin-bottom: 24px;
+  max-width: 600px;
+}
+
+.jobs-content {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 24px;
+}
+
+.jobs-sidebar {
+  position: sticky;
+  top: 24px;
+  align-self: start;
+}
+
+.jobs-listings {
+  min-height: 400px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .jobs-content {
+    grid-template-columns: 1fr;
+  }
+
+  .jobs-sidebar {
+    position: static;
+  }
+
+  .jobs-page {
+    padding: 16px 12px;
+  }
+}

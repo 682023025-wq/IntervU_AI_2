@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import LoginPage from './features/Auth/LoginPage';
 import DashboardPage from './features/Dashboard/DashboardPage';
 import CVPage from './features/CV/CVPage';
+import JobsPage from './features/Jobs/components/JobsPage';
 
 // Placeholder components untuk route yang belum dibuat
 const ComingSoon = ({ name }) => (
@@ -71,10 +72,7 @@ function App() {
           path="/interview" 
           element={isAuthenticated ? <ComingSoon name="Interview" /> : <Navigate to="/login" />} 
         />
-        <Route 
-          path="/jobs" 
-          element={isAuthenticated ? <ComingSoon name="Job Search" /> : <Navigate to="/login" />} 
-        />
+<Route path="/jobs" element={<JobsPage />} />
         <Route 
           path="/profile" 
           element={isAuthenticated ? <ComingSoon name="Profile" /> : <Navigate to="/login" />} 

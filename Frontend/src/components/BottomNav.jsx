@@ -1,11 +1,14 @@
 // src/components/BottomNav.jsx
 import { useNavigate, useLocation } from 'react-router-dom';
+import { Home, FileText, MessageSquare, Briefcase, User } from 'lucide-react';
+
 
 export default function BottomNav() {
   const navigate = useNavigate();
   const location = useLocation();
 
   const navItems = [
+    
     { 
       path: '/dashboard', 
       label: 'Home',
