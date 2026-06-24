@@ -47,7 +47,12 @@ IntervU AI adalah aplikasi web yang membantu pengguna mempersiapkan wawancara ke
 - Fitur `Interview` dan `Profile` masih placeholder.
 - Autentikasi backend tidak terhubung; saat ini mode demo menggunakan mock data.
 - Data pengguna, CV, dan lowongan belum terintegrasi ke backend nyata.
-- Infrastruktur backend (Supabase/REST) belum diimplementasikan di frontend.
+- Infrastruktur backend belum diimplementasikan di frontend.
+
+## Teknologi Rekomendasi
+- Frontend: React + Tailwind CSS (sudah berjalan di Vite).
+- Backend: Python + FastAPI untuk API cepat, mudah ditest, sudah cocok dengan arsitektur REST.
+- Database: bisa menggunakan PostgreSQL atau Supabase Postgres jika ingin hosting terkelola.
 
 ## Nilai Bisnis
 - Mempercepat kesiapan pelamar kerja dengan CV dan simulasi wawancara.

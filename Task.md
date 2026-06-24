@@ -133,7 +133,8 @@ Controller memetakan interaksi pengguna ke state dan navigasi.
 6. Tambahkan integrasi API backend / Supabase.
 
 ## Catatan Teknis
-- Teknologi: React 19, Vite 8, Tailwind CSS, react-router-dom 7.
+- Frontend: React 19, Vite 8, Tailwind CSS, react-router-dom 7.
+- Backend yang disarankan: Python + FastAPI sebagai API service untuk autentikasi, CV, user profile, dan lowongan kerja.
 - Status saat ini: frontend berjalan dengan mock/demo state.
 - Komponen reusable: `Button`, `Input`, `Navbar`, `BottomNav`.
 - Logika state utama: `CVProvider` + `useReducer`.
