@@ -124,6 +124,13 @@ export const LoginPage = ({ onLoginSuccess }) => {
           <div className="login-form-wrapper">
             {/* Header */}
             <div className="form-header">
+              <div className="logo-login-box">
+                <img 
+                  src="https://res.cloudinary.com/dxvryfbpz/image/upload/v1781106636/Logo_IntervU_AI_ksikyh.png" 
+                  alt="IntervU AI Logo"
+                  className="logo-login"
+                />
+              </div>
               <h2 className="form-title">Masuk ke Akun Anda</h2>
               <p className="form-subtitle">
                 Belum punya akun? <a href="/register" className="link-register">Daftar sekarang</a>
@@ -150,7 +157,7 @@ export const LoginPage = ({ onLoginSuccess }) => {
                 icon={<MailIcon active={true} />}
               />
 
-              <div className="form-group">
+              <div className="form-group-password">
                 <label className="block text-sm font-semibold text-text-secondary mb-2">
                   Password
                 </label>
@@ -191,6 +198,8 @@ export const LoginPage = ({ onLoginSuccess }) => {
                 )}
               </div>
 
+              <a href="#" className="link-secondary forgot-password">Lupa password?</a>
+
               <Button
                 type="submit"
                 variant="primary"
@@ -203,41 +212,29 @@ export const LoginPage = ({ onLoginSuccess }) => {
             </form>
 
             <div className="social-login-section">
-              <p className="text-sm text-text-muted text-center mb-3">
-                Atau masuk dengan akun Google
-              </p>
-              <Button
+              <div className="divider">
+                <div className="divider-line"></div>
+                <span className="divider-text">Atau masuk dengan</span>
+                <div className="divider-line"></div>
+              </div>
+              <button
                 type="button"
-                variant="secondary"
-                size="md"
+                className="google-login-btn"
                 onClick={handleGoogleLogin}
-                className="w-full text-sm"
               >
-                Masuk dengan Google
-              </Button>
-            </div>
-
-            <div className="demo-section">
-              <p className="text-sm text-text-muted text-center mb-3">
-                Demo Mode - Gunakan kredensial test:
-              </p>
-              <Button
-                type="button"
-                variant="secondary"
-                size="md"
-                onClick={handleDemoLogin}
-                className="w-full text-sm"
-              >
-                Isi Kredensial Demo
-              </Button>
-              <p className="text-xs text-text-muted text-center mt-2">
-                Email: user@example.com | Password: password123
-              </p>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M22.56 12.25C22.56 11.47 22.49 10.72 22.36 10H12V14.26H17.92C17.66 15.67 16.88 16.85 15.71 17.65V20.34H19.28C21.36 18.42 22.56 15.6 22.56 12.25Z" fill="#4285F4"/>
+                  <path d="M12 23C14.97 23 17.46 22.02 19.28 20.34L15.71 17.65C14.73 18.33 13.48 18.74 12 18.74C9.14 18.74 6.71 16.8 6.15 14.21H2.54V16.91C3.77 19.27 6.28 21 9.15 21C11.31 21 13.22 20.24 14.65 18.95L18.04 21.5C15.99 23.45 13.62 24.5 11 24.5C6.07 24.5 1.89 22.71 0.22 19.78L3.82 17.08C4.82 20 7.24 22 10.99 22L12 23Z" fill="#34A853"/>
+                  <path d="M6.15 14.21C5.88 13.38 5.72 12.5 5.72 11.62C5.72 10.74 5.88 9.86 6.15 9.03V6.33H2.54C1.48 8.45 1 10.85 1 13.32C1 15.79 1.48 18.19 2.54 20.31L6.15 17.6C6.71 15.01 6.71 14.99 6.15 14.21Z" fill="#FBBC05"/>
+                  <path d="M12 5.5C13.48 5.5 14.87 6 16.02 6.98L19.09 3.91C17.16 2.16 14.76 1 12 1C7.24 1 3.13 3.65 1.08 7.5L4.68 10.2C5.72 7.13 8.7 5.5 12 5.5Z" fill="#EA4335"/>
+                </svg>
+                <span>Masuk dengan Google</span>
+              </button>
             </div>
 
             {/* Footer */}
             <div className="form-footer">
-              <a href="#" className="link-secondary">Lupa password?</a>
+              <span className="demo-link" onClick={handleDemoLogin}>Demo</span>
               <span>•</span>
               <a href="#" className="link-secondary">Bantuan</a>
             </div>
