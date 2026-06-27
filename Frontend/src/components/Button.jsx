@@ -19,10 +19,10 @@ export const Button = ({
   children,
   ...props
 }) => {
-  const baseClasses = 'font-semibold rounded-lg transition-all duration-200 flex items-center justify-center gap-2 whitespace-nowrap focus:ring-2 focus:ring-primary-bright outline-none';
+  const baseClasses = 'font-semibold rounded-lg transition-all duration-200 flex items-center justify-center gap-2 whitespace-nowrap focus:ring-2 focus:ring-primary outline-none';
 
   const variantClasses = {
-    primary: 'bg-primary-dark text-white hover:bg-primary-medium shadow-md hover:shadow-lg disabled:opacity-50',
+    primary: 'bg-primary text-ink hover:bg-primary-deep shadow-md hover:shadow-lg disabled:opacity-50',
     secondary: 'bg-bg-secondary border border-border-light text-primary-dark hover:bg-primary-light hover:border-primary-bright disabled:opacity-50',
     ghost: 'text-primary-dark hover:bg-bg-secondary disabled:opacity-50'
   };

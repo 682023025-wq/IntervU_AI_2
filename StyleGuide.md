@@ -1,25 +1,25 @@
 # StyleGuide - IntervU AI
 
 ## Breakpoint Utama
-| Ukuran Perangkat         | Min Width | Max Width | Base Spacing |
-|-------------------------|-----------|-----------|--------------|
-| Mobile Small            | 320px     | 374px     | 0.5rem       |
-| Mobile Large            | 375px     | 479px     | 0.625rem     |
-| Mobile XL               | 480px     | 599px     | 0.75rem      |
-| Tablet Portrait         | 600px     | 767px     | 0.875rem     |
-| Tablet Landscape        | 768px     | 1023px    | 1rem         |
-| Desktop                 | 1024px+   | -         | 1.125rem     |
+| Nama     | Lebar     | Perubahan Utama |
+|----------|----------|----------------|
+| Wide     | ≥ 1440px | Full container width; mockup scale |
+| Desktop  | 1024–1440px | Max-width content; pricing 4-up |
+| Tablet   | 768–1023px | Pricing 2-up; single mockup |
+| Mobile   | < 768px | Pricing 1-up; hamburger nav; display 64→36px |
 
 ## Identitas Visual
-- Palet warna utama: **biru dominan**
-  - Biru gelap: `#0F4C75` (primary)
-  - Biru sedang: `#1B5F8C` (hover)
-  - Biru muda: `#E0F2FE` (background)
-  - Biru terang: `#60A5FA` (focus)
-  - Abu-abu gelap: `#0F172A` (text primary)
-  - Abu-abu medium: `#475569` (text secondary)
-- Nuansa modern, profesional, dengan aksen gradien subtle dan transparansi kaca (glass effect)
-- Tipografi bersih: `Inter`, `Segoe UI`, atau sistem sans-serif modern
+- Palet warna utama: **emerald green dominant**
+  - Emerald: `#3ecf8e` (primary)
+  - Emerald Deep: `#24b47e` (hover)
+  - Emerald Soft: `#4ade80` (accent)
+  - Ink: `#171717` (text primary)
+  - Ink Secondary: `#212121` (text secondary)
+  - Ink Mute: `#707070` (text tertiary)
+  - Canvas: `#ffffff` (background)
+  - Canvas Night: `#1c1c1c` (dark background)
+- Nuansa modern, teknis, dengan minimal chrome dan near-monochrome palette
+- Tipografi bersih: `Circular`, `Inter`, atau sistem sans-serif modern
 
 ## Prinsip Desain Utama
 1. **Kesederhanaan**: Fokus pada tujuan utama pengguna, interface bersih dan navigasi intuitif
@@ -31,292 +31,114 @@
 7. **Fleksibilitas**: Desain responsif dan gunakan adaptive interfaces
 
 ## Tipografi
-- Judul besar: bold `1.75rem` - `2.375rem`, warna `#0F172A`
-- Sub-judul: semibold `1.125rem` - `2rem`, warna `#0F172A`
-- Body text: normal `1rem`, warna `#475569`
-- Button: semibold `0.85rem` - `1rem`, warna putih atau biru
-- Font-family: `'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`
+- Display XXL: 64px, weight 500, letter-spacing -1.92px, font-family "Circular, 'Helvetica Neue', Helvetica, Arial, sans-serif"
+- Display XL: 48px, weight 500, letter-spacing -1.44px, font-family "Circular, 'Helvetica Neue', Helvetica, Arial, sans-serif"
+- Display LG: 36px, weight 500, letter-spacing -0.72px, font-family "Circular, 'Helvetica Neue', Helvetica, Arial, sans-serif"
+- Display MD: 28px, weight 500, letter-spacing -0.42px, font-family "Circular, 'Helvetica Neue', Helvetica, Arial, sans-serif"
+- Heading LG: 22px, weight 500, line-height 1.2, letter-spacing 0, font-family "Circular, 'Helvetica Neue', Helvetica, Arial, sans-serif"
+- Heading MD: 18px, weight 500, line-height 1.4, letter-spacing 0, font-family "Circular, 'Helvetica Neue', Helvetica, Arial, sans-serif"
+- Body LG: 18px, weight 400, line-height 1.55, font-family "Circular, 'Helvetica Neue', Helvetica, Arial, sans-serif"
+- Body MD: 16px, weight 400, line-height 1.5, font-family "Circular, 'Helvetica Neue', Helvetica, Arial, sans-serif"
+- Button MD: 14px, weight 500, line-height 1.0, font-family "Circular, 'Helvetica Neue', Helvetica, Arial, sans-serif"
+- Caption: 13px, weight 400, line-height 1.45, font-family "Circular, 'Helvetica Neue', Helvetica, Arial, sans-serif"
+- Micro: 12px, weight 400, line-height 1.45, font-family "Circular, 'Helvetica Neue', Helvetica, Arial, sans-serif"
+- Code: 14px, weight 400, line-height 1.5, font-family "ui-monospace, Menlo, Monaco, Consolas, 'Liberation Mono', monospace"
+
+### Prinsip Tipografi
+- Weight 500 untuk seluruh tier display
+- Negative tracking pada tier display (-1.92px pada 64px, proporsional turun)
+- Mono untuk code blocks`
 
 ## Spacing dan Layout
-- Layout responsif dengan `max-width: 1366px` di desktop
-- Jarak antar blok: `1rem` (mobile), `1.5rem` (tablet), `2rem` (desktop)
-- Padding internal kartu: `0.75rem` (mobile), `1rem` (tablet), `1.5rem` (desktop)
-- Border radius: `8px` (tombol/input), `12px` (kartu), `16px` (panel utama)
+- Base unit: 8px (dengan sub-tokens 2/4/12)
+- Tokens: `{spacing.xxs}` 2px · `{spacing.xs}` 4px · `{spacing.sm}` 8px · `{spacing.md}` 12px · `{spacing.lg}` 16px · `{spacing.xl}` 24px · `{spacing.xxl}` 32px · `{spacing.huge}` 64px
+- Section padding: 64–96px pada marketing surfaces
+- Card internal padding: 32px pada feature/pricing cards
+- Grid & Container: Marketing pages center di ~1280px container dengan no edge-bleed
 
 ## Komponen UI Utama
-- **Navbar**: Desktop (putih, border bottom `#E2E8F0`), Mobile (BottomNav fixed)
-- **Tombol**: Primary (background `#0F4C75`, teks putih), Sekunder (background `#F8FAFC`)
-- **Kartu**: Background putih `#FFFFFF`, border `1px solid #E2E8F0`, corner radius `12px`
 
-## Warna Status
-- Sukses: `#16A34A` (text), `#DCFCE7` (background)
-- Informasi: `#0F4C75` (text), `#E0F2FE` (background)
-- Peringatan: `#F59E0B` (text), `#FFFBEB` (background)
-- Error: `#EF4444` (text), `#FEE2E2` (background)
+### Tombol
+
+**`button-primary-green`** — the signature CTA.
+- Background `{colors.primary}`, text `{colors.on-primary}` (near-black, NOT white), type `{typography.button-md}`, padding `{spacing.sm} {spacing.lg}` (8px 16px), rounded `{rounded.sm}` 6px.
+- Pressed state `button-primary-green-pressed` shifts to `{colors.primary-deep}`.
+
+**`button-secondary-outline`** — outline alternative on white.
+- Background `{colors.canvas}`, text `{colors.ink}`, 1px solid `{colors.hairline-strong}` border, same shape.
+
+**`button-on-dark`** — used on dark surfaces / code-block CTAs.
+- Background `{colors.canvas-night}`, text `{colors.on-dark}`, same shape.
+
+**`button-link`** — text-only inline button.
+- Transparent background, text `{colors.ink}` rendered in `{typography.button-md}`, no padding, with a subtle underline on hover.
+
+### Cards & Containers
+
+**`card-feature-light`** — feature card on white.
+- Background `{colors.canvas}`, padding `{spacing.xxl}`, rounded `{rounded.lg}` 12px, 1px `{colors.hairline}` border.
+
+**`card-pricing`** — standard pricing tier.
+- Background `{colors.canvas}`, padding `{spacing.xxl}`, rounded `{rounded.lg}`, 1px `{colors.hairline}` border. Title in `{typography.heading-lg}`, price in `{typography.display-md}`, body in `{typography.body-md}`, CTA `button-primary-green` pinned bottom.
+
+**`card-pricing-featured`** — inverted dark featured tier.
+- Background `{colors.canvas-night}`, text `{colors.on-dark}`, otherwise identical structure.
+
+**`card-feature-dark`** — feature card with deep dark fill.
+- Background `{colors.canvas-night}`, text `{colors.on-dark}`, padding `{spacing.xxl}`, rounded `{rounded.lg}`. Used for code-heavy feature explanations.
+
+**`code-block`** — code snippet container.
+- Background `{colors.canvas-night}`, text `{colors.on-dark}` rendered in `{typography.code}`. Padding `{spacing.lg}` 16px, rounded `{rounded.sm}` 6px.
+
+### Inputs & Forms
+
+**`text-input`** — standard form input.
+- Background `{colors.canvas}`, text `{colors.ink}`, type `{typography.body-md}`, padding `{spacing.sm} {spacing.md}` (8px 12px), rounded `{rounded.sm}` 6px, 1px `{colors.hairline}` border.
+
+### Navigation
+
+**`nav-bar-light`** — top nav across the site.
+- Background `{colors.canvas}`, text `{colors.ink}`, padding `{spacing.lg} {spacing.xl}`. Logo on the left, primary nav center, "Sign In" link + filled `button-primary-green` on the right.
+
+### Pills, Tags, and Chips
+
+**`pill-tag-green`** — small green pill used for "new" or featured indicators.
+- Background `{colors.primary}`, text `{colors.on-primary}`, type `{typography.micro}`, padding `{spacing.xxs} {spacing.sm}`, rounded `{rounded.full}`.
+
+**`pill-tag-soft`** — neutral pill on light surfaces.
+- Background `{colors.canvas-soft}`, text `{colors.ink}`, otherwise same shape.
+
+### Signature Components
+
+**Composited Product UI Mockups** — multi-layer dashboard / SQL editor / log pane composites with subtle Level 2 shadows. The product is the brand's argument; mockups always sit on white canvas with no surrounding decoration.
+
+**`link-on-light`** — inline links in body copy.
+- Text `{colors.ink}` rendered in `{typography.body-md}` with a persistent underline.
+
+**`footer-light`** — site-wide footer.
+- Background `{colors.canvas}`, text `{colors.ink-mute}`, type `{typography.caption}`, padding `{spacing.huge} {spacing.xl}` (64px 24px). Holds 4–5 columns of link groups, social icons, and a small legal row.
+
+## Do's and Don'ts
+
+### Do
+- Reserve `{colors.primary}` emerald for filled CTAs and the wordmark accent — it should appear sparingly.
+- Render display tiers at weight 500 with negative letter-spacing — the engineered tightness is part of the brand.
+- Use `{rounded.sm}` 6px for buttons — square-ish radii, never pill-shaped.
+- Composite product UI mockups inside `{rounded.lg}` containers with subtle Level 2 shadows.
+- Use near-black `{colors.ink}` on the emerald button (not white) — the green reads as "lit" with dark type, which is the brand's idiosyncratic choice.
+- Apply system mono for every code block.
+
+### Don't
+- Don't introduce additional accent colors as system colors — purples, yellows, and pinks belong inside chart points and integration logos only.
+- Don't bump display weight above 500 — the brand's calibrated mid-weight breaks at 600+.
+- Don't use pill-shaped buttons; the brand's button radius is square-ish 6px.
+- Don't use white text on the emerald button — the brand specifically uses near-black on green.
+- Don't add atmospheric gradients to hero bands — the white canvas is the design.
 
 ## Detail UX
 - Animasi: transisi `0.2s - 0.3s ease-in-out`
-- Focus state: ring biru `#60A5FA` width `2px` pada input dan button
-- Ikon: gunakan SVG dengan stroke width `2`, warna `#0F4C75` aktif
-
-## Ukuran Ideal Elemen UI untuk Berbagai Perangkat
-
-### Ukuran Tombol (Buttons)
-- **Mobile Small (320px - 374px)**:
-  - Primary: Min-height 48px, font-size 16px
-  - Secondary: Min-height 44px, font-size 15px
-- **Mobile Large (375px - 479px)**:
-  - Primary: Min-height 50px, font-size 16px
-  - Secondary: Min-height 46px, font-size 15px
-- **Mobile XL (480px - 599px)**:
-  - Primary: Min-height 52px, font-size 17px
-  - Secondary: Min-height 48px, font-size 16px
-- **Tablet Portrait (600px - 767px)**:
-  - Primary: Min-height 54px, font-size 17px
-  - Secondary: Min-height 50px, font-size 16px
-- **Desktop (1024px+)**:
-  - Primary: Min-height 58px, font-size 18px
-  - Secondary: Min-height 54px, font-size 17px
-
-### Ukuran Teks (Typography)
-- **Mobile Small (320px - 374px)**:
-  - Heading 1: 28px (1.75rem)
-  - Body Text: 16px (1rem)
-- **Mobile Large (375px - 479px)**:
-  - Heading 1: 30px (1.875rem)
-  - Body Text: 16px (1rem)
-- **Mobile XL (480px - 599px)**:
-  - Heading 1: 32px (2rem)
-  - Body Text: 17px (1.0625rem)
-- **Tablet Portrait (600px - 767px)**:
-  - Heading 1: 34px (2.125rem)
-  - Body Text: 17px (1.0625rem)
-- **Desktop (1024px+)**:
-  - Heading 1: 38px (2.375rem)
-  - Body Text: 18px (1.125rem)
-
-### Spacing & Padding
-- **Mobile Small (320px - 374px)**:
-  - Base spacing: 8px (0.5rem)
-  - Container padding: 16px
-- **Mobile Large (375px - 479px)**:
-  - Base spacing: 10px (0.625rem)
-  - Container padding: 18px
-- **Mobile XL (480px - 599px)**:
-  - Base spacing: 12px (0.75rem)
-  - Container padding: 20px
-- **Tablet Portrait (600px - 767px)**:
-  - Base spacing: 14px (0.875rem)
-  - Container padding: 22px
-- **Desktop (1024px+)**:
-  - Base spacing: 18px (1.125rem)
-  - Container padding: 28px
-
-## Praktik Terbaik UI/UX Profesional
-
-### 1. Hierarki Visual
-- Gunakan ukuran, warna, dan kontras untuk menunjukkan kepentingan
-- Gunakan white space untuk memisahkan bagian
-- Gunakan alignment untuk menunjukkan hubungan antar elemen
-- Gunakan grouping untuk elemen yang terkait
-
-### 2. Navigasi Intuitif
-- Gunakan breadcrumb untuk navigasi bertingkat
-- Sediakan tombol back yang jelas
-- Gunakan sticky navigation untuk akses cepat
-- Gunakan search functionality yang efektif
-- Gunakan sitemap untuk aplikasi kompleks
-
-### 3. Form Design
-- Gunakan label yang jelas dan deskriptif
-- Gunakan placeholder text secara bijak
-- Validasi secara real-time
-- Gunakan inline error messages
-- Gunakan progress indicator untuk form panjang
-
-### 4. Error Prevention & Recovery
-- Gunakan confirmation dialogs untuk aksi destruktif
-- Sediakan undo functionality
-- Gunakan safe defaults
-- Gunakan constraints untuk mencegah input yang salah
-- Sediakan error messages yang membantu
-
-### 5. Microinteractions
-- Gunakan hover states untuk feedback
-- Gunakan loading animations untuk feedback
-- Gunakan success animations untuk konfirmasi
-- Gunakan sound effects secara bijak
-- Gunakan haptic feedback untuk mobile
-
-### 6. Visibility of System Status
-- Selalu berikan feedback tentang apa yang sedang terjadi
-- Gunakan progress indicators untuk proses yang lama
-- Tampilkan loading states secara jelas
-- Gunakan status bar untuk informasi kontekstual
-
-### 7. Match Between System and the Real World
-- Gunakan bahasa yang familiar bagi pengguna
-- Ikuti konvensi dunia nyata
-- Gunakan ikon yang familiar
-- Gunakan analogi yang mudah dipahami
-
-### 8. User Control and Freedom
-- Sediakan "emergency exits" dari situasi yang tidak diinginkan
-- Gunakan undo dan redo
-- Gunakan cancel buttons yang jelas
-- Gunakan back buttons yang mudah diakses
-
-### 9. Error Prevention
-- Eliminasi kondisi error sejak awal
-- Gunakan form validation yang efektif
-- Gunakan constraints untuk mencegah kesalahan
-- Gunakan confirmation untuk aksi penting
-
-### 10. Recognition Rather Than Recall
-- Buat objek, tindakan, dan opsi tetap terlihat
-- Gunakan icons dan labels yang jelas
-- Gunakan history dan bookmarks
-- Gunakan defaults yang smart
-
-### 11. Flexibility and Efficiency of Use
-- Sediakan accelerators untuk pengguna yang sering
-- Gunakan shortcuts yang bisa dipelajari
-- Gunakan personalization options
-- Gunakan adaptive interfaces
-
-### 12. Aesthetic and Minimalist Design
-- Hindari informasi yang tidak relevan
-- Gunakan white space secara efektif
-- Gunakan visual hierarchy yang jelas
-- Gunakan desain yang seimbang
-
-### 13. Help Users Recognize, Diagnose, and Recover From Errors
-- Gunakan bahasa yang sederhana
-- Identifikasi masalah secara spesifik
-- Sarankan solusi untuk memperbaiki masalah
-- Gunakan error codes jika diperlukan
-
-### 14. Help and Documentation
-- Gunakan instruksi yang jelas dan ringkas
-- Gunakan tooltips untuk bantuan kontekstual
-- Gunakan help system yang mudah dicari
-- Gunakan FAQ dan tutorial jika diperlukan
-- **Navbar**: Horizontal navigation dengan logo dan menu items, tidak menggunakan burger menu.
-- **Layout**: Bisa menggunakan 2 kolom untuk konten utama, atau sidebar + content area.
-- **BottomNav**: Hilangkan di landscape, tetap tampilkan di portrait jika diperlukan.
-- **Typography**: Judul `1.5rem`, body `1rem`, bisa sedikit lebih besar dari mobile.
-- **Kartu**: Bisa menampilkan 2 kartu per baris di landscape.
-- **Form Input**: Lebih fleksibel, bisa menyesuaikan lebar kolom.
-- **Tombol**: Bisa menyesuaikan dengan layout, tidak harus full width.
-
-#### Desktop (1024px+)
-- **Navbar**: Menu horizontal penuh dengan logo, navigasi utama, dan action items.
-- **Sidebar**: Optional sidebar untuk navigasi tambahan atau info pendukung.
-- **Layout**: Multi-kolom (2-3 kolom umum), dengan grid system yang fleksibel.
-- **Typography**: Ukuran lebih besar, bisa menggunakan heading hingga `2rem`.
-- **Kartu**: Fleksibel jumlah per baris tergantung lebar layar (2-4 kartu per baris).
-- **Form Input**: Lebih fleksibel dalam layout, bisa side-by-side.
-- **Tombol**: Variasi ukuran sesuai konteks, tidak selalu full width.
-
-### Orientasi Perangkat (Portrait vs Landscape)
-
-#### Umum untuk Semua Ukuran
-- **Viewport Meta Tag**: Selalu sertakan `<meta name="viewport" content="width=device-width, initial-scale=1.0">` untuk kontrol orientasi.
-- **Touch Targets**: Minimum 44px x 44px untuk elemen interaktif di semua orientasi.
-- **Gesture Support**: Swipe untuk navigasi antar halaman/konten, scroll vertikal sebagai default.
-- **Dynamic Content**: Sesuaikan tampilan konten berdasarkan orientasi (misalnya video player fullscreen di landscape).
-
-#### Mobile Portrait ke Landscape
-- **Navbar**: Dari bottom navigation (portrait) ke top navigation (landscape) atau kombinasi keduanya.
-- **Konten**: Dari single column ke multi column (biasanya 2 kolom di landscape).
-- **Input Forms**: Dari full-width ke side-by-side inputs di landscape.
-- **Media**: Gambar/video bisa menyesuaikan lebar yang lebih besar di landscape.
-- **Action Buttons**: Bisa diposisikan di sisi kanan atau kiri di landscape untuk aksesibilitas satu tangan.
-
-#### Tablet Portrait ke Landscape
-- **Sidebar**: Aktifkan sidebar di landscape untuk navigasi tambahan.
-- **Grid Layout**: Dari 1-2 kolom (portrait) ke 2-3 kolom (landscape).
-- **Detail Views**: Gunakan space ekstra di landscape untuk menampilkan detail tambahan tanpa navigasi.
-- **Split Views**: Manfaatkan ruang horizontal untuk menampilkan dua panel sekaligus (misalnya daftar dan detail).
-
-### Prinsip-Prinsip UI/UX untuk Berbagai Ukuran Layar
-
-#### 1. Mobile-First Approach
-- Mulai desain dari versi mobile terlebih dahulu, lalu skalakan ke ukuran yang lebih besar.
-- Pastikan fungsionalitas inti tersedia di semua ukuran layar.
-- Prioritaskan konten dan fitur yang paling penting untuk versi mobile.
-
-#### 2. Consistent Experience
-- Pertahankan identitas visual dan branding di semua ukuran layar.
-- Gunakan pola navigasi yang konsisten meskipun bentuknya berbeda.
-- Jaga hierarki informasi yang sama di semua ukuran layar.
-
-#### 3. Touch-Friendly Design
-- Elemen interaktif harus cukup besar untuk disentuh (minimal 44px x 44px).
-- Jarak antar elemen interaktif harus cukup untuk mencegah kesalahan sentuh.
-- Hindari elemen yang terlalu dekat dengan tepi layar untuk mencegah sentuhan tidak sengaja.
-
-#### 4. Performance Optimization
-- Muat hanya konten yang diperlukan untuk ukuran layar tertentu.
-- Optimalkan gambar dan media untuk berbagai ukuran layar.
-- Gunakan lazy loading untuk konten yang tidak terlihat secara langsung.
-
-#### 5. Accessibility Across Devices
-- Pastikan kontras warna memenuhi standar WCAG di semua ukuran layar.
-- Gunakan ukuran teks yang cukup besar untuk dibaca di layar kecil.
-- Sediakan dukungan keyboard untuk perangkat dengan input eksternal di layar besar.
-
-### Responsive Typography
-- Gunakan unit `rem` atau `em` untuk ukuran teks agar bisa diskalakan secara proporsional.
-- Gunakan teknik fluid typography dengan `clamp()` untuk ukuran teks yang responsif:
-  ```css
-  .heading {
-    font-size: clamp(1.25rem, 4vw, 2rem);
-  }
-  ```
-- Jaga rasio line-height yang konsisten untuk keterbacaan di semua ukuran layar (1.4-1.6 untuk body text).
-
-### Adaptive Images & Media
-- Gunakan atribut `srcset` dan `sizes` untuk gambar responsif:
-  ```html
-  <img src="small.jpg" 
-       srcset="small.jpg 480w, medium.jpg 800w, large.jpg 1200w"
-       sizes="(max-width: 480px) 100vw, (max-width: 800px) 50vw, 33vw"
-       alt="Deskripsi gambar">
-  ```
-- Gunakan teknik art direction untuk menyajikan gambar yang berbeda di ukuran layar yang berbeda.
-- Optimalkan format gambar (WebP, AVIF) untuk performa yang lebih baik di semua perangkat.
-
-### Testing Across Devices
-- Uji aplikasi di berbagai ukuran layar nyata, bukan hanya melalui emulator browser.
-- Gunakan device toolbar di browser developer tools untuk simulasi cepat.
-- Lakukan uji aksesibilitas di berbagai ukuran layar dan orientasi.
-- Perhatikan waktu muat dan performa di perangkat dengan spesifikasi rendah.
-
-## Konsep-Konsep UI/UX Profesional
-
-### Prinsip-Prinsip Dasar UI/UX
-
-#### 1. Kesederhanaan (Simplicity)
-- Fokus pada tujuan utama pengguna
-- Hindari elemen yang tidak perlu
-- Gunakan white space secara efektif
-- Interface yang bersih dan tidak berantakan
-- Navigasi yang intuitif dan mudah dipahami
-
-#### 2. Konsistensi (Consistency)
-- Gunakan palet warna yang konsisten di semua ukuran layar
-- Terapkan tipografi yang seragam sesuai tabel ukuran teks
-- Gunakan ikon dan gaya visual yang seragam
-- Pola interaksi yang konsisten di seluruh aplikasi
-- Bahasa dan istilah yang konsisten
-
-#### 3. Kenyamanan Visual (Visual Comfort)
-- Gunakan kontras warna yang cukup (minimal 4.5:1 untuk teks normal)
-- Jaga hierarki visual yang jelas
-- Gunakan animasi dan transisi yang halus
-- Jaga keseimbangan antara elemen visual
-- Gunakan grid system untuk alignment yang konsisten
+- Focus state: ring emerald `#3ecf8e` width `2px` pada input dan button
+- Ikon: gunakan SVG dengan stroke width `2`, warna `#3ecf8e` aktif yang konsisten
 
 #### 4. Aksesibilitas (Accessibility)
 - Desain untuk semua pengguna, termasuk yang memiliki disabilitas

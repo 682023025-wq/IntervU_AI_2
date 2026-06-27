@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
 import { register } from '../../lib/authApi';
@@ -56,40 +57,20 @@ export const RegisterPage = () => {
 
   return (
     <div className="login-container">
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary-light rounded-full opacity-20 blur-3xl"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-primary-bright rounded-full opacity-10 blur-3xl"></div>
-      </div>
-
       <div className="login-content">
-        <div className="login-hero">
-          <div className="hero-content">
-            <div className="logo-section">
-              <img 
-                src="https://res.cloudinary.com/dxvryfbpz/image/upload/v1781106636/Logo_IntervU_AI_ksikyh.png" 
-                alt="IntervU AI Logo"
-                className="logo-image"
-              />
-            </div>
-
-            <h1 className="hero-title">Bergabung dengan IntervU AI</h1>
-            <p className="hero-subtitle">
-              Buat akun untuk mulai membangun CV profesional, mempersiapkan interview, dan menemukan pekerjaan yang sesuai.
-            </p>
-            <ul className="hero-features">
-              <li>✓ Akses CV Builder modern</li>
-              <li>✓ Latihan interview yang terstruktur</li>
-              <li>✓ Notifikasi rekomendasi pekerjaan</li>
-            </ul>
-          </div>
-        </div>
-
         <div className="login-form-section">
           <div className="login-form-wrapper">
             <div className="form-header">
+              <div className="logo-login-box">
+                <img 
+                  src="https://res.cloudinary.com/dxvryfbpz/image/upload/v1781106636/Logo_IntervU_AI_ksikyh.png" 
+                  alt="IntervU AI Logo"
+                  className="logo-login"
+                />
+              </div>
               <h2 className="form-title">Daftar Akun Baru</h2>
               <p className="form-subtitle">
-                Sudah punya akun? <a href="/login" className="link-register">Masuk sekarang</a>
+                Sudah punya akun? <Link to="/login" className="link-register">Masuk sekarang</Link>
               </p>
             </div>
 
@@ -144,15 +125,6 @@ export const RegisterPage = () => {
                 {loading ? 'Mendaftar...' : 'Daftar'}
               </Button>
             </form>
-
-            <div className="demo-section">
-              <p className="text-sm text-text-muted text-center mb-3">
-                Atau lanjutkan dengan akun Google jika sudah tersambung.
-              </p>
-              <Button type="button" variant="secondary" size="md" className="w-full">
-                Daftar dengan Google
-              </Button>
-            </div>
           </div>
         </div>
       </div>
