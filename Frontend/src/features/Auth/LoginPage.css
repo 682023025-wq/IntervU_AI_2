@@ -62,26 +62,41 @@
 
 .form-title {
   font-size: 1.4rem;
-  font-weight: 700;
-  color: #0F172A;
+  font-weight: 500;
+  color: #171717;
   margin-bottom: 0.5rem;
+  letter-spacing: -0.42px;
+  font-family: "Circular", "Inter", sans-serif;
 }
 
 .form-subtitle {
   font-size: 0.92rem;
-  color: #475569;
+  color: #212121;
   line-height: 1.5;
+  font-family: "Circular", "Inter", sans-serif;
 }
 
 .link-register {
-  color: #0F4C75;
+  color: #3ecf8e;
   font-weight: 600;
   text-decoration: none;
   transition: color 0.2s;
 }
 
 .link-register:hover {
-  color: #1B5F8C;
+  color: #24b47e;
+  text-decoration: underline;
+}
+
+.link-secondary {
+  color: #3ecf8e;
+  text-decoration: none;
+  transition: color 0.2s;
+  font-size: 0.85rem;
+}
+
+.link-secondary:hover {
+  color: #24b47e;
   text-decoration: underline;
 }
 
@@ -122,7 +137,7 @@
 .form-group-password label {
   font-size: 0.85rem;
   font-weight: 600;
-  color: #475569;
+  color: #212121;
 }
 
 .form-group-password input {
